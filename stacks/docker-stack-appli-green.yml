@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+
+  colors:
+    image: bedis9/colors
+    networks:
+      - front-network
+    environment:
+      - COLOR=green
+    deploy:
+      labels:
+        - "traefik.http.routers.colors-green.priority=0"
+        - "traefik.http.routers.colors-green.rule=Path(`/`)"
+        - "traefik.http.services.colors-green.loadbalancer.server.port=8080"
+
+networks:
+
+  front-network:
+    external: true

@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+  http:
+    image: traefik:2.0.7
+    networks:
+      - front-network
+    ports:
+      - 8080:8080
+      - 80:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --api.insecure=true --providers.docker.swarmmode
+
+networks:
+
+  front-network:
+    external: true
