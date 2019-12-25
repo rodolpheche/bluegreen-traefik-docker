@@ -20,6 +20,13 @@ docker network create -d overlay front-network
 
 ## Getting started
 
+### Prepare workspace
+
+```bash
+git clone https://github.com/rodolpheche/bluegreen-traefik-docker
+cd bluegreen-traefik-docker
+```
+
 ### Deploy Traefik
 
 ```bash
